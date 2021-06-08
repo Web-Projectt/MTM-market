@@ -108,8 +108,8 @@ public class urunController extends databaseConnection{
 		            ps.setInt(4, urun.getUrunFiyat());
 		            ps.setInt(5, urun.getUrunAdet());
 		            ps.setString(6, urun.getFotograf());
-		            ps.setInt(7, urun.getOzelKategori());
-		            ps.setInt(8, urun.getKategoriKodu());
+		            ps.setString(7, urun.getOzelKategori());
+		            ps.setString(8, urun.getKategoriKodu());
 
 		          
 		            ps.executeUpdate();
