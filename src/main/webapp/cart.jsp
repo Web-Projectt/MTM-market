@@ -1,3 +1,9 @@
+<%@ page import="java.io.*" %>
+<%@ page language="java" import="java.sql.*" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import ="Controller.urunController,Model.urunModel,java.util.*,Controller.kategoriController,Model.kategoriModel"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,82 +170,90 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
+				<% 
+                String oturum = (String)session.getAttribute("session");
 
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/two.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/three.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
+        %>
+        
+        
+        
+        
+        <%
+                String urk=request.getParameter("urunk");
+                if(urk!=null){
+                    
+                    int sepetUrunSil=Integer.valueOf(urk);
+                    List<urunModel> sepetim= (List<urunModel>)session.getAttribute("sepet");
+                    if(sepetim!=null){
+                        
+                        for(urunModel u:sepetim){
+                            
+                            if(u.getUrunKodu()==sepetUrunSil){
+                                
+                                sepetim.remove(u);
+                                break;
+                            }
+                        }
+                        
+                        session.setAttribute("sepet", sepetim);
+                    }
+                }
+                
+                    
+                    List<urunModel> sepetim= (List<urunModel>)session.getAttribute("sepet");
+                
+                
+                
+                if(oturum==null){
+                    
+                    sepetim=null;
+                }
+        
+        %>
+        <%int sayac=0; %>
+        <%
+                if(sepetim==null){
+                    %>
+                    
+                    <div class="alert alert-danger" role="alert">
+                          Urun Bulunmamaktadir
+                    </div>
+                    
+                <% }
+                else{
+                    for(urunModel urun:sepetim){
+                             %>
+                             <tr>
+                            <td class="cart_product">
+                                <a href=""><img src="images/cart/two.png" alt=""></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a href=""><%=urun.getUrunAdi() %></a></h4>
+                                <p>Web ID: 1089772</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>$<%=urun.getUrunFiyat()%> </p>
+                            </td>
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <a class="cart_quantity_up" href=""> + </a>
+                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                    <a class="cart_quantity_down" href=""> - </a>
+                                </div>
+                            </td>
+                            <td class="cart_total">
+                                <p class="cart_total_price">$<%=urun.getUrunFiyat()%></p>
+                            </td>
+                            <td class="cart_delete">
+                                <a class="cart_quantity_delete" href="cart.jsp?urunk=<%=urun.getUrunKodu()%>"><i class="fa fa-times"></i></a>
+                            </td>
+                        </tr>
+                        <%
+                           sayac=sayac+urun.getUrunFiyat();
+                            }
+                        session.setAttribute("sayac",sayac);
+                        }
+            %>
 					</tbody>
 				</table>
 			</div>
