@@ -52,10 +52,10 @@ public class urunController extends databaseConnection{
 	     }
 	
 	
-	public List<urunModel> readingData(){
+	public List<urunModel> readingData(String sorgu){
 	   	 
 	 	   try {
-	 		   String sorgu="SELECT * FROM urun";
+	 		  
 	 		   Class.forName("com.mysql.jdbc.Driver");
 	 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
 	            ps=con.prepareStatement(sorgu);
