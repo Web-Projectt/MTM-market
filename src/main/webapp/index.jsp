@@ -66,7 +66,7 @@
 				<div class="row">
 					<div class="col-md-4 clearfix">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/melismaaaaa-removebg-preview_2.png" alt="" /></a>
+							<a href="index.jsp"><img src="images/home/melismaaaaa-removebg-preview_2.png" alt="" /></a>
 						</div>
 						
 					</div>
