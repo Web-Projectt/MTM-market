@@ -195,43 +195,43 @@
 							
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">MEYVE,SEBZE</a></h4>
+									<h4 class="panel-title"><a href="index.jsp?sqlSorgu=SELECT * FROM urun WHERE kategoriKodu=1">MEYVE,SEBZE</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">ET,TAVUK,BALIK</a></h4>
+									<h4 class="panel-title"><a href="index.jsp?sqlSorgu=SELECT * FROM urun WHERE kategoriKodu=2">ET,TAVUK,BALIK</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">SUT,KAHVALTILIK</a></h4>
+									<h4 class="panel-title"><a href="index.jsp?sqlSorgu=SELECT * FROM urun WHERE kategoriKodu=3">SUT,KAHVALTILIK</a></h4>
 								</div>
 							</div>
 							
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">DONDURULMUS GIDA</a></h4>
+									<h4 class="panel-title"><a href="index.jsp?sqlSorgu=SELECT * FROM urun WHERE kategoriKodu=4">DONDURULMUS GIDA</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">GIDA</a></h4>
+									<h4 class="panel-title"><a href="index.jsp?sqlSorgu=SELECT * FROM urun WHERE kategoriKodu=5">GIDA</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">BAKLIYAT</a></h4>
+									<h4 class="panel-title"><a href="index.jsp?sqlSorgu=SELECT * FROM urun WHERE kategoriKodu=6">BAKLIYAT</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">ICECEK</a></h4>
+									<h4 class="panel-title"><a href="index.jsp?sqlSorgu=SELECT * FROM urun WHERE kategoriKodu=7">ICECEK</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">DETERJAN,TEMIZLIK</a></h4>
+									<h4 class="panel-title"><a href="index.jsp?sqlSorgu=SELECT * FROM urun WHERE kategoriKodu=8">DETERJAN,TEMIZLIK</a></h4>
 								</div>
 							</div>
 						</div><!--/category-products-->
@@ -246,8 +246,16 @@
 				
 				
 				
+				
+				
+				
+				
+				
 				<div class="col-sm-9 padding-right" >
 				<h2 class="title text-center">Urunler</h2>
+				<% String sqlSorgu = request.getParameter("sqlSorgu");
+				
+				%>
 				<%        
                          String uk=request.getParameter("urunKodu");
                          String urunFotograf=request.getParameter("urunFotograf");
@@ -265,14 +273,14 @@
                              session.setAttribute("sepet",sepetim);
                          }    
                  %>
-<%
-urunController data=new urunController();
-List<urunModel> urunler=data.readingData();
-for(urunModel urun:urunler){
-    %>
+			<%
+			urunController data=new urunController();
+			List<urunModel> urunler=data.readingData(sqlSorgu);
+			for(urunModel urun:urunler){
+   			 %>
     
     
-    <div class="col-sm-4">
+  			  <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
