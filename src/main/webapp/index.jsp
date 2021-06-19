@@ -278,13 +278,11 @@
 			List<urunModel> urunler=data.readingData(sqlSorgu);
 			for(urunModel urun:urunler){
    			 %>
-    
-    
   			  <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src=<%= urun.getFotograf() %>alt="" />
+                                        
                                         <h2><%= urun.getUrunFiyat() %> TL</h2>
                                         <p><%= urun.getUrunAdi() %></p>
                                         <a href="addCart.jsp" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>

@@ -24,7 +24,7 @@
 		cookie.setMaxAge(60 * 60 * 24);
         response.addCookie(cookie);
 		session.setAttribute("session","false");
-		response.sendRedirect("uyeGiris.jsp");
+		response.sendRedirect("login.jsp");
 	 
 	}
 

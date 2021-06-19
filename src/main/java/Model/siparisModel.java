@@ -3,13 +3,12 @@ package Model;
 public class siparisModel {
 
 	 private int siparisKodu;
-	 private String siparisTarihi ; 
-	 private String isleme; 
-	 private String hazirlanma;
-	 private String kargolanma ; 
-	 private String teslim ;
-	 private String odemeTipi;
-	 private String uyekullaniciAdi;
+	 private String uyekullaniciAdi ; 
+	 private String siparisTarihi; 
+	 private String isleme;
+	 private String hazirlanma ; 
+	 private String kargolama ;
+	 private String teslim;
 	 
 	 
 	 
@@ -36,32 +35,27 @@ public class siparisModel {
 
 
 
-	public siparisModel(int siparisKodu, String siparisTarihi, String isleme, String hazirlanma, String kargolanma,
-			String teslim, String odemeTipi, String uyekullaniciAdi) {
+	public siparisModel(int siparisKodu, String uyekullaniciAdi, String siparisTarihi, String isleme, String hazirlanma, String kargolama,
+			String teslim) {
 		
 		this.siparisKodu = siparisKodu;
 		this.siparisTarihi = siparisTarihi;
 		this.isleme = isleme;
 		this.hazirlanma = hazirlanma;
-		this.kargolanma = kargolanma;
+		this.kargolama = kargolama;
 		this.teslim = teslim;
-		this.odemeTipi = odemeTipi;
 		this.uyekullaniciAdi = uyekullaniciAdi;
 	}
-
-
 	
-
-
+	
 	public siparisModel(String siparisTarihi, String isleme, String hazirlanma, String kargolanma, String teslim,
-			String odemeTipi, String uyekullaniciAdi) {
+			String uyekullaniciAdi) {
 		super();
 		this.siparisTarihi = siparisTarihi;
 		this.isleme = isleme;
 		this.hazirlanma = hazirlanma;
-		this.kargolanma = kargolanma;
+		this.kargolama = kargolanma;
 		this.teslim = teslim;
-		this.odemeTipi = odemeTipi;
 		this.uyekullaniciAdi = uyekullaniciAdi;
 	}
 
@@ -70,17 +64,15 @@ public class siparisModel {
 
 
 	public siparisModel(int siparisKodu, String siparisTarihi, String isleme, String hazirlanma, String kargolanma,
-			String teslim, String odemeTipi) {
+			String teslim) {
 		super();
 		this.siparisKodu = siparisKodu;
 		this.siparisTarihi = siparisTarihi;
 		this.isleme = isleme;
 		this.hazirlanma = hazirlanma;
-		this.kargolanma = kargolanma;
+		this.kargolama = kargolanma;
 		this.teslim = teslim;
-		this.odemeTipi = odemeTipi;
 	}
-
 
 	public int getSiparisKodu() {
 		return siparisKodu;
@@ -122,13 +114,13 @@ public class siparisModel {
 	}
 
 
-	public String getKargolanma() {
-		return kargolanma;
+	public String getKargolama() {
+		return kargolama;
 	}
 
 
-	public void setKargolanma(String kargolanma) {
-		this.kargolanma = kargolanma;
+	public void setKargolama(String kargolama) {
+		this.kargolama = kargolama;
 	}
 
 
@@ -141,15 +133,7 @@ public class siparisModel {
 		this.teslim = teslim;
 	}
 
-
-	public String getOdemeTipi() {
-		return odemeTipi;
-	}
-
-
-	public void setOdemeTipi(String odemeTipi) {
-		this.odemeTipi = odemeTipi;
-	}
+	
 
 
 

@@ -18,7 +18,7 @@ public class uyeController extends databaseConnection{
  	   try {
  		   String sorgu="SELECT * FROM uye";
  		   Class.forName("com.mysql.jdbc.Driver");
- 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
+ 		  con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
             ps=con.prepareStatement(sorgu);
             ResultSet rs=ps.executeQuery();
             List<uyeModel> liste=new ArrayList<>();
@@ -60,7 +60,7 @@ public class uyeController extends databaseConnection{
 	 	   try {
 	 		   String sorgu="INSERT INTO uye(kullaniciAdi,ad,soyad,telefon,eMail,sifre,sehir,ilce,adres) VALUES(?,?,?,?,?,?,?,?,?)";
 	 		   Class.forName("com.mysql.jdbc.Driver");
-	 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
+	 		  con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
 	            ps=con.prepareStatement(sorgu);
 	            
 	            
@@ -248,7 +248,7 @@ public class uyeController extends databaseConnection{
 					
 					String sorgu="SELECT kullaniciAdi,sifre FROM uye";
 		 		   	Class.forName("com.mysql.jdbc.Driver");
-		 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
+		 		   con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
 		            ps=con.prepareStatement(sorgu);	
 		            
 		            ResultSet rs=ps.executeQuery();
@@ -293,7 +293,7 @@ public class uyeController extends databaseConnection{
 		 	   try {
 		 		   String sorgu="SELECT * FROM uye WHERE kullaniciAdi=?";
 		 		   Class.forName("com.mysql.jdbc.Driver");
-		 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
+		 		  con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
 		            ps=con.prepareStatement(sorgu);
 		            ps.setString(1,user);
 		            ResultSet rs=ps.executeQuery();
@@ -303,6 +303,10 @@ public class uyeController extends databaseConnection{
 		            	 uye=new uyeModel(rs.getString("kullaniciAdi"),rs.getString("ad"),rs.getString("soyad"),
 		            							rs.getString("telefon"),rs.getString("eMail"),rs.getString("sifre"),
 		            							rs.getString("sehir"),rs.getString("ilce"),rs.getString("adres"));
+		            		
+		            	
+		            
+		            
 		            return uye;
 		         
 		        } 

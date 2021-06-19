@@ -61,7 +61,9 @@
 						</div>
 						
 					</div>
+					
 					<div class="col-md-8 clearfix">
+					
 						<div class="shop-menu clearfix pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="login.jsp"><i class="fa fa-lock"></i>Giris yap / Uye ol</a></li>
@@ -111,10 +113,21 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
+					<%
+                		 String oturum = (String)session.getAttribute("session");
+ 						 if(oturum=="false"){
+ 							
+ 							
+ 							%>
+ 							<div class="alert alert-danger mx-3"  role="alert">
+ 	      					Kullanici Adi veya Parola Yanlis
+ 	    				</div>
+ 						<% }
+					%>
 					<div class="login-form"><!--login form-->
 						<h2>Hesabiniza Giris Yapin</h2>
 						<form action="girisControl.jsp">
-							<input type="text" placeholder="Kullanici Adi" name="kullaniciAdi" />
+							<input type="text" placeholder="Kullanici Adi" id="validationCustomUsername" name="kullaniciAdi" />
 							<input type="password" placeholder="Sifre" name="sifre"/>
 							<span>
 								<input type="checkbox" class="checkbox"> 
@@ -127,14 +140,38 @@
 				<div class="col-sm-1">
 					<h2 class="or">YA DA</h2>
 				</div>
+				
+				
+				
+				
+					
+					
+					
+					
 				<div class="col-sm-4">
+				
 					<div class="signup-form"><!--sign up form-->
 						<h2>Yeni Kullanici Kaydi!</h2>
-						<form action="#">
-							<input type="text" placeholder="Kullanici Adi"/>
-							<input type="email" placeholder="Email Adresi"/>
-							<input type="password" placeholder="Sifre"/>
-							<button type="submit" class="btn btn-default">Giris Yap</button>
+						<%
+                		String kayit = (String)session.getAttribute("kayit");
+ 						 if(kayit=="true"){
+ 							
+ 							
+ 					%>
+ 							<div class="alert alert-danger mx-3"  role="alert">
+ 	      					Kullanici Kayitli
+ 	    				</div>
+ 					<% }else if(kayit=="false"){
+ 					%>
+ 							<div class="alert alert-success mx-3"  role="alert">
+ 	      					Kayit Tamamlandi
+ 	    				</div>
+ 					<%	
+ 						}
+					%>
+						<form action="uyeKayit.jsp">
+							
+							<button type="submit" class="btn btn-default">Kayıt Ol</button>
 						</form>
 					</div><!--/sign up form-->
 				</div>
@@ -173,5 +210,30 @@
 	<script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+    </script>
 </body>
 </html>
