@@ -71,7 +71,7 @@
 						<div class="shop-menu clearfix pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="login.jsp"><i class="fa fa-lock"></i>Giris yap / Uye ol</a></li>
-								<li><a href=""><i class="fa fa-user"></i>Hesap</a></li>
+								<li><a href=""><i class="fa fa-user"></i>Hesap/Cikis</a></li>
 								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Sepetim</a></li>
 							</ul>
 						</div>
