@@ -191,7 +191,7 @@
                              %>
                              <tr>
                             <td class="cart_product">
-                                <a href=""><img src="images/cart/two.png" alt=""></a>
+                                <a href=""><img src=<%= urun.getFotograf() %>alt=""></a>
                             </td>
                             <td class="cart_description">
                                 <h4><a href=""><%=urun.getUrunAdi() %></a></h4>
@@ -240,7 +240,7 @@
 							<li>Toplam <span><%=sayac %>TL</span></li>
 						</ul>
 							<a class="btn btn-default update" href="">Güncelle</a>
-							<a class="btn btn-default check_out" href="">Ödemeyi Tamamla</a>
+							<a class="btn btn-default check_out" href="OdemeSayfasi.jsp?miktar=<%=sayac %>">Ödemeyi Tamamla</a>
 					</div>
 				</div>
 				

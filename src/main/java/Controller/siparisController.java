@@ -16,19 +16,18 @@ public class siparisController extends databaseConnection{
 	 	   try {
 	 		   String sorgu="SELECT * FROM siparis";
 	 		   Class.forName("com.mysql.jdbc.Driver");
-	 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","Gelmessengelme54");
+	 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066");
 	            ps=con.prepareStatement(sorgu);
 	            ResultSet rs=ps.executeQuery();
 	            List<siparisModel> liste=new ArrayList<>();
 	            while(rs.next())
 	            {
-	            	siparisModel siparis=new siparisModel(rs.getInt("siparisKodu"),rs.getString("siparisTarihi"),rs.getString("isleme"),
-	            							rs.getString("hazirlanma"),rs.getString("kargolanma"),rs.getString("teslim"),rs.getString("odemeTipi"),rs.getString("uyekullaniciAdi"));
+	            	siparisModel siparis=new siparisModel(rs.getInt("siparisKodu"),rs.getString("uyekullaniciAdi"),rs.getString("siparisTarihi"),rs.getString("isleme"),
+	            							rs.getString("hazirlanma"),rs.getString("kargolama"),rs.getString("teslim"));
 	            		
 	            	liste.add(siparis);
 	            }
 	            return liste;
-	         
 	        } 
 	        catch (ClassNotFoundException | SQLException exception) {
 	            System.out.println("Bir hata meydana geldi:"+exception);
@@ -54,20 +53,19 @@ public class siparisController extends databaseConnection{
 		   	  
 			
 		 	   try {
-		 		   String sorgu="INSERT INTO siparis(siparisTarihi,isleme,hazirlanma,kargolanma,teslim,odemeTipi,uyekullaniciAdi) VALUES(?,?,?,?,?,?,?)";
+		 		   String sorgu="INSERT INTO siparis(uyeKullaniciAdi,siparisTarihi,isleme,hazirlanma,kargolama,teslim) VALUES(?,?,?,?,?,?)";
 		 		   Class.forName("com.mysql.jdbc.Driver");
-		 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","Gelmessengelme54");
+		 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066");
 		            ps=con.prepareStatement(sorgu);
 		            
 		            
-		            
-		            ps.setString(1, siparis.getSiparisTarihi());
-		            ps.setString(2, siparis.getIsleme());
-		            ps.setString(3, siparis.getHazirlanma());
-		            ps.setString(4, siparis.getKargolanma());
-		            ps.setString(5, siparis.getTeslim());
-		            ps.setString(6, siparis.getOdemeTipi());
-		            ps.setString(7, siparis.getUyekullaniciAdi());
+		            ps.setString(1, siparis.getUyekullaniciAdi());
+		            ps.setString(2, siparis.getSiparisTarihi());
+		            ps.setString(3, siparis.getIsleme());
+		            ps.setString(4, siparis.getHazirlanma());
+		            ps.setString(5, siparis.getKargolama());
+		            ps.setString(6, siparis.getTeslim());
+		           
 
 		          
 		            ps.executeUpdate();
@@ -109,7 +107,7 @@ public class siparisController extends databaseConnection{
 				try {
 					String sorgu="DELETE FROM siparis WHERE siparisKodu=?";
 					Class.forName("com.mysql.jdbc.Driver");
-					con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","Gelmessengelme54");
+					con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066");
 					ps=con.prepareStatement(sorgu);	    
 		            ps.setInt(1, siparis.getSiparisKodu());
 		            i=ps.executeUpdate();
@@ -154,15 +152,15 @@ public class siparisController extends databaseConnection{
 				try {
 					String sorgu="UPDATE siparis SET siparisTarihi=?,isleme=?,hazirlanma=?,kargolanma=?,teslim=?,odemeTipi=? WHERE siparisKodu=?";
 					Class.forName("com.mysql.jdbc.Driver");
-					con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","Gelmessengelme54");
+					con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066");
 					ps=con.prepareStatement(sorgu);	    
 			        
 		            ps.setString(1, siparis.getSiparisTarihi());
 		            ps.setString(2, siparis.getIsleme());
 		            ps.setString(3, siparis.getHazirlanma());
-		            ps.setString(4, siparis.getKargolanma());
+		            ps.setString(4, siparis.getKargolama());
 		            ps.setString(5, siparis.getTeslim());
-		            ps.setString(6, siparis.getOdemeTipi());
+		          
 		            ps.setInt(7, siparis.getSiparisKodu());
 		            
 			        i=ps.executeUpdate();

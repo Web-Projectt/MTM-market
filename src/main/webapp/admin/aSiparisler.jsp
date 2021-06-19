@@ -1,3 +1,5 @@
+
+
 <%@page import ="Controller.siparisController,Model.siparisModel,java.util.*"%>
 
 
@@ -25,7 +27,6 @@
                             <th scope="col">Hazirlanma</th>
                             <th scope="col">Kargolanma</th>
                             <th scope="col">Teslim</th>
-                            <th scope="col">Odeme Tipi</th>
                             <th scope="col">Musteri Kodu</th>
                               
                         </tr>
@@ -37,11 +38,10 @@
                             <tr>
                                 <th scope="row"><%= siparis.getSiparisKodu() %></th>
                                 <td><%= siparis.getSiparisTarihi() %></td>
-                                <td><%=siparis.getIsleme() %></td>
+                                <td><%= siparis.getIsleme() %></td>
                                 <td><%= siparis.getHazirlanma() %></td>
-                                <td><%= siparis.getKargolanma() %></td>
+                                <td><%= siparis.getKargolama() %></td>
                                 <td><%= siparis.getTeslim() %></td>
-                                <td><%= siparis.getOdemeTipi() %></td>
                                 <td><%= siparis.getUyekullaniciAdi() %></td>
                             </tr>
                             

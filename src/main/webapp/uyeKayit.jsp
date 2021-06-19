@@ -75,6 +75,15 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="md mt-3">
+
+                            <input type="text" class="form-control" id="validationCustom01" name="telefon" placeholder="Telefon " required>
+                            <div class="valid-feedback">
+                                Telefon
+                            </div>
+                        </div>
+                        
                         <div class="form-group md mt-3">
 
                             <input type="text" class="form-control" aria-describedby="inputGroupPrepend" name="eMail" placeholder="Email" required>
@@ -87,6 +96,27 @@
                             <input type="password" class="form-control" aria-describedby="inputGroupPrepend" name="sifre" placeholder="Sifre" required>
                             <div class="invalid-feedback">
                                 Sifrenizi Giriniz
+                            </div>
+                        </div>
+                        <div class="form-group md">
+
+                            <input type="text" class="form-control" aria-describedby="inputGroupPrepend" name="sehir" placeholder="Sehir" required>
+                            <div class="invalid-feedback">
+                                Sehrinizi giriniz
+                            </div>
+                        </div>
+                        <div class="form-group md">
+
+                            <input type="text" class="form-control" aria-describedby="inputGroupPrepend" name="ilce" placeholder="Ilce" required>
+                            <div class="invalid-feedback">
+                                Ilcenizi Giriniz
+                            </div>
+                        </div>
+                        <div class="form-group md">
+
+                            <input type="text" class="form-control" aria-describedby="inputGroupPrepend" name="adres" placeholder="Adres" required>
+                            <div class="invalid-feedback">
+                                Adres
                             </div>
                         </div>
 

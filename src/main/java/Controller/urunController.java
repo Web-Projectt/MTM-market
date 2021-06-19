@@ -17,14 +17,15 @@ public class urunController extends databaseConnection{
 	 	   try {
 	 		   String sorgu="SELECT * FROM urun WHERE kategoriKodu=?";
 	 		   Class.forName("com.mysql.jdbc.Driver");
-	 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
+	 		  con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
+	            
 	            ps=con.prepareStatement(sorgu);
 	            ps.setInt(1,kategoriKodu);
 	            ResultSet rs=ps.executeQuery();
 	            List<urunModel> liste=new ArrayList<>();
 	            while(rs.next())
 	            {
-	            	urunModel uye=new urunModel(rs.getInt("urunKodu"),rs.getString("urunAdi"),rs.getString("urunDetay"),
+	            	urunModel uye=new urunModel(rs.getInt("urunKodu"),rs.getString("urunAdi"),rs.getString("urunAciklama"),
 	            			rs.getInt("urunFiyat"),rs.getInt("urunAdet"),rs.getString("fotograf"),rs.getString("ozelkategori"),rs.getString("kategoriKodu"));
 	            		
 	            	liste.add(uye);
@@ -52,6 +53,7 @@ public class urunController extends databaseConnection{
 	     }
 	
 	
+	
 	public List<urunModel> readingData(String sorgu){
 	   	 
 	 	   try {
@@ -59,7 +61,6 @@ public class urunController extends databaseConnection{
 	 		   Class.forName("com.mysql.jdbc.Driver");
 	 		    con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mtm-market?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT","root","mel4066.");
 	            ps=con.prepareStatement(sorgu);
-	            
 	            ResultSet rs=ps.executeQuery();
 	            List<urunModel> liste=new ArrayList<>();
 	            while(rs.next())
