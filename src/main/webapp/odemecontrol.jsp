@@ -25,7 +25,7 @@
 		session.setAttribute("sepet",null);
 		session.setAttribute("onay","true");
 		session.getMaxInactiveInterval();
-		response.sendRedirect("OdemeSayfasi.jsp");
+		response.sendRedirect("cart.jsp");
 	}
 
 %>
