@@ -61,11 +61,8 @@
 
     	<%@ include file="aUrun.jsp" %>
 	
-    	
-
 		<%@ include file="yoneticiler.jsp" %>
 		
-
 
         
 

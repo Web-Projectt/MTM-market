@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>MTM-Market</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -74,8 +74,9 @@
 						<div class="shop-menu clearfix pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="login.jsp"><i class="fa fa-lock"></i>Giris yap / Uye ol</a></li>
-								<li><a href=""><i class="fa fa-user"></i>Hesap/Cikis</a></li>
+								<li><a href="exit.jsp"><i class="fa fa-user"></i>Hesap/Cikis</a></li>
 								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Sepetim</a></li>
+								<li><a href="admin/adminGiris.jsp"><i class="fa fa-lock"></i>Admin Giris</a></li>
 							</ul>
 						</div>
 					</div>
@@ -254,6 +255,9 @@
 				<div class="col-sm-9 padding-right" >
 				<h2 class="title text-center">Urunler</h2>
 				<% String sqlSorgu = request.getParameter("sqlSorgu");
+				if(sqlSorgu==null){
+					sqlSorgu="SELECT * FROM urun";
+				}
 				
 				%>
 				<%        
